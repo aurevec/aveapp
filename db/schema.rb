@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131124174513) do
+ActiveRecord::Schema.define(version: 20131124181352) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,11 +49,64 @@ ActiveRecord::Schema.define(version: 20131124174513) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "competitions", force: true do |t|
+    t.string   "name",       null: false
+    t.integer  "country_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "competitions", ["country_id"], name: "index_competitions_on_country_id", using: :btree
+
   create_table "countries", force: true do |t|
     t.string   "name",       null: false
     t.string   "iso_code",   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "seasons", force: true do |t|
+    t.integer  "competition_id", null: false
+    t.integer  "year_id",        null: false
+    t.datetime "begin_date"
+    t.datetime "end_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "seasons", ["competition_id"], name: "index_seasons_on_competition_id", using: :btree
+  add_index "seasons", ["year_id"], name: "index_seasons_on_year_id", using: :btree
+
+  create_table "seasons_teams", id: false, force: true do |t|
+    t.integer "team_id",   null: false
+    t.integer "season_id", null: false
+  end
+
+  add_index "seasons_teams", ["season_id", "team_id"], name: "index_seasons_teams_on_season_id_and_team_id", using: :btree
+  add_index "seasons_teams", ["team_id", "season_id"], name: "index_seasons_teams_on_team_id_and_season_id", using: :btree
+
+  create_table "teams", force: true do |t|
+    t.string   "name"
+    t.integer  "country_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "teams", ["country_id"], name: "index_teams_on_country_id", using: :btree
+
+  create_table "years", force: true do |t|
+    t.string   "name",       null: false
+    t.datetime "begin_date"
+    t.datetime "end_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_foreign_key "competitions", "countries", name: "competitions_country_id_fk"
+
+  add_foreign_key "seasons", "competitions", name: "seasons_competition_id_fk"
+  add_foreign_key "seasons", "years", name: "seasons_year_id_fk"
+
+  add_foreign_key "teams", "countries", name: "teams_country_id_fk"
 
 end
