@@ -18,6 +18,8 @@ gem 'activerecord_any_of', '~> 1.2'
 
 gem 'activeadmin', github: 'gregbell/active_admin'
 
+gem 'iso_country_codes', '~> 0.4.2'
+
 group :development do
   gem 'rails-footnotes'
   gem 'better_errors'
