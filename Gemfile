@@ -33,7 +33,7 @@ group :development do
 end
 
 group :production do
-  gem 'airbrake'                  , '~> 3.1.14'
+  gem 'bugsnag', '~> 1.6.4'
   gem 'rails_12factor'
 end
 
