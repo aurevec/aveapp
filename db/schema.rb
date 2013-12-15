@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131124181352) do
+ActiveRecord::Schema.define(version: 20131215104616) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,17 @@ ActiveRecord::Schema.define(version: 20131124181352) do
     t.datetime "updated_at"
   end
 
+  create_table "entries", force: true do |t|
+    t.integer  "team_id"
+    t.integer  "season_id"
+    t.integer  "handicap",   default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "entries", ["season_id"], name: "index_entries_on_season_id", using: :btree
+  add_index "entries", ["team_id"], name: "index_entries_on_team_id", using: :btree
+
   create_table "seasons", force: true do |t|
     t.integer  "competition_id", null: false
     t.integer  "year_id",        null: false
@@ -76,14 +87,6 @@ ActiveRecord::Schema.define(version: 20131124181352) do
 
   add_index "seasons", ["competition_id"], name: "index_seasons_on_competition_id", using: :btree
   add_index "seasons", ["year_id"], name: "index_seasons_on_year_id", using: :btree
-
-  create_table "seasons_teams", id: false, force: true do |t|
-    t.integer "team_id",   null: false
-    t.integer "season_id", null: false
-  end
-
-  add_index "seasons_teams", ["season_id", "team_id"], name: "index_seasons_teams_on_season_id_and_team_id", using: :btree
-  add_index "seasons_teams", ["team_id", "season_id"], name: "index_seasons_teams_on_team_id_and_season_id", using: :btree
 
   create_table "teams", force: true do |t|
     t.string   "name"
@@ -103,6 +106,9 @@ ActiveRecord::Schema.define(version: 20131124181352) do
   end
 
   add_foreign_key "competitions", "countries", name: "competitions_country_id_fk"
+
+  add_foreign_key "entries", "seasons", name: "participations_season_id_fk"
+  add_foreign_key "entries", "teams", name: "participations_team_id_fk"
 
   add_foreign_key "seasons", "competitions", name: "seasons_competition_id_fk"
   add_foreign_key "seasons", "years", name: "seasons_year_id_fk"

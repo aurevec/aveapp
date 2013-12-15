@@ -2,6 +2,7 @@ class Team < ActiveRecord::Base
 
   # Associations
   belongs_to :country, class_name: Country, inverse_of: :teams
-  has_and_belongs_to_many :seasons, class_name: Season, join_table: :seasons_teams
+  has_many :entries, class_name: Entry, inverse_of: :team
+  has_many :seasons, through: :entries
 
 end
