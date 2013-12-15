@@ -8,10 +8,14 @@ namespace :data do
         'data:competitions:create',
         'data:seasons:create',
         'data:teams:create',
-        'data:entries:create']
+        'data:entries:create',
+        'data:days:create',
+        'data:matches:create']
 
     desc "Generate all data"
     task :destroy => [
+        'data:matches:destroy',
+        'data:days:destroy',
         'data:entries:destroy',
         'data:teams:destroy',
         'data:seasons:destroy',

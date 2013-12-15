@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131215164542) do
+ActiveRecord::Schema.define(version: 20131215214941) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,17 @@ ActiveRecord::Schema.define(version: 20131215164542) do
     t.datetime "updated_at"
   end
 
+  create_table "days", force: true do |t|
+    t.integer  "number"
+    t.integer  "season_id",  null: false
+    t.date     "begin_date"
+    t.date     "end_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "days", ["season_id"], name: "index_days_on_season_id", using: :btree
+
   create_table "entries", force: true do |t|
     t.integer  "team_id"
     t.integer  "season_id"
@@ -76,11 +87,26 @@ ActiveRecord::Schema.define(version: 20131215164542) do
   add_index "entries", ["season_id"], name: "index_entries_on_season_id", using: :btree
   add_index "entries", ["team_id"], name: "index_entries_on_team_id", using: :btree
 
+  create_table "matches", force: true do |t|
+    t.integer  "day_id"
+    t.integer  "home_team_id"
+    t.integer  "away_team_id"
+    t.integer  "home_goals"
+    t.integer  "away_goals"
+    t.datetime "date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "matches", ["away_team_id"], name: "index_matches_on_away_team_id", using: :btree
+  add_index "matches", ["day_id"], name: "index_matches_on_day_id", using: :btree
+  add_index "matches", ["home_team_id"], name: "index_matches_on_home_team_id", using: :btree
+
   create_table "seasons", force: true do |t|
     t.integer  "competition_id",             null: false
     t.integer  "year_id",                    null: false
-    t.datetime "begin_date"
-    t.datetime "end_date"
+    t.date     "begin_date"
+    t.date     "end_date"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "win_points",     default: 0
@@ -102,16 +128,22 @@ ActiveRecord::Schema.define(version: 20131215164542) do
 
   create_table "years", force: true do |t|
     t.string   "name",       null: false
-    t.datetime "begin_date"
-    t.datetime "end_date"
+    t.date     "begin_date"
+    t.date     "end_date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_foreign_key "competitions", "countries", name: "competitions_country_id_fk"
 
+  add_foreign_key "days", "seasons", name: "days_season_id_fk"
+
   add_foreign_key "entries", "seasons", name: "participations_season_id_fk"
   add_foreign_key "entries", "teams", name: "participations_team_id_fk"
+
+  add_foreign_key "matches", "days", name: "matches_day_id_fk"
+  add_foreign_key "matches", "teams", name: "matches_away_team_id_fk", column: "away_team_id"
+  add_foreign_key "matches", "teams", name: "matches_home_team_id_fk", column: "home_team_id"
 
   add_foreign_key "seasons", "competitions", name: "seasons_competition_id_fk"
   add_foreign_key "seasons", "years", name: "seasons_year_id_fk"
