@@ -1,5 +1,5 @@
 namespace :data do
-  namespace :country do
+  namespace :countries do
 
     desc "Create countries"
     task create: "environment" do
@@ -252,5 +252,9 @@ namespace :data do
     ])
     end
 
+    desc "Destroy countries"
+    task destroy: "environment" do
+      Country.destroy_all
+    end
   end
 end
