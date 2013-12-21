@@ -2,7 +2,7 @@ namespace :data do
 
   namespace :all do
     desc "Generate all data"
-    task :create => [
+    task create: [
         'data:countries:create',
         'data:years:create',
         'data:competitions:create',
@@ -12,8 +12,8 @@ namespace :data do
         'data:days:create',
         'data:matches:create']
 
-    desc "Generate all data"
-    task :destroy => [
+    desc "destroy all data"
+    task destroy: [
         'data:matches:destroy',
         'data:days:destroy',
         'data:entries:destroy',
@@ -22,6 +22,12 @@ namespace :data do
         'data:competitions:destroy',
         'data:years:destroy',
         'data:countries:destroy']
+
+    desc "reset all data"
+    task reset: [
+        'data:all:destroy',
+        'data:all:create'
+    ]
   end
 
 
