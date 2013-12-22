@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-SocketIoTest::Application.load_tasks
+Aveapp::Application.load_tasks
