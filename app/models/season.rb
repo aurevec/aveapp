@@ -6,6 +6,5 @@ class Season < ActiveRecord::Base
   has_many :entries, class_name: Entry, inverse_of: :season
   has_many :teams, through: :entries
   has_many :days, class_name: Day, inverse_of: :season
-  has_many :matches, through: :days
 
 end
