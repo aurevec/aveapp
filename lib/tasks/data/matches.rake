@@ -46,7 +46,7 @@ namespace :data do
       la_gantoise = Team.find_by(name: "La Gantoise")
       fc_bruges = Team.find_by(name: "FC Bruges")
       mons = Team.find_by(name: "Mons")
-      zulte_waregem = Team.find_by(name: "Zulte Waregem")
+      zulte_waregem = Team.find_by(name: "Zulte-Waregem")
       standard = Team.find_by(name: "Standard")
       lokeren = Team.find_by(name: "Lokeren")
       cercle_bruges = Team.find_by(name: "Cercle Bruges")
