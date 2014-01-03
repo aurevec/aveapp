@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/gregbell/active_admin.git
-  revision: 21dae0403f9b4bad6b3d2c6c03134bb95b25e6fb
+  revision: 0f333d3a0236de1b13e1cd8cda35f1406c0ceba8
   specs:
     activeadmin (1.0.0.pre)
       arbre (~> 1.0)
@@ -120,7 +120,7 @@ GEM
       has_scope (~> 0.6.0.rc)
       responders (~> 1.0.0.rc)
     iso_country_codes (0.4.2)
-    jbuilder (2.0.1)
+    jbuilder (2.0.2)
       activesupport (>= 3.0.0)
       multi_json (>= 1.2.0)
     jquery-rails (3.0.4)
@@ -264,7 +264,7 @@ DEPENDENCIES
   draper (~> 1.3.0)
   foreigner
   iso_country_codes (~> 0.4.2)
-  jbuilder (~> 2.0.1)
+  jbuilder (~> 2.0.2)
   jquery-rails
   letter_opener
   pg
