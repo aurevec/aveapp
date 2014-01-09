@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/gregbell/active_admin.git
-  revision: 0f333d3a0236de1b13e1cd8cda35f1406c0ceba8
+  revision: 8c2ff62c30beda6ae4f2c389c113c3a65bd5e785
   specs:
     activeadmin (1.0.0.pre)
       arbre (~> 1.0)
@@ -15,14 +15,6 @@ GIT
       rails (>= 3.2, < 4.1)
       ransack (~> 1.0)
       sass-rails
-
-GIT
-  remote: git://github.com/rails-api/rails-api.git
-  revision: 7bd62654d48e68a0e0f3d33cb20aab5e58f677e2
-  specs:
-    rails-api (0.1.0)
-      actionpack (>= 3.2.11)
-      railties (>= 3.2.11)
 
 GEM
   remote: https://rubygems.org/
@@ -74,7 +66,7 @@ GEM
     bourbon (3.1.8)
       sass (>= 3.2.0)
       thor
-    bugsnag (1.8.0)
+    bugsnag (1.8.1)
       httparty (>= 0.6, < 1.0)
       multi_json (~> 1.0)
     builder (3.1.4)
@@ -104,7 +96,7 @@ GEM
     eventmachine (1.0.3-java)
     execjs (2.0.2)
     ffi (1.9.3-java)
-    foreigner (1.6.0)
+    foreigner (1.6.1)
       activerecord (>= 3.0.0)
     formtastic (2.3.0.rc2)
       actionpack (>= 3.0)
@@ -135,6 +127,9 @@ GEM
       activesupport (>= 3.0.0)
     launchy (2.4.2)
       addressable (~> 2.3)
+    launchy (2.4.2-java)
+      addressable (~> 2.3)
+      spoon (~> 0.0.1)
     letter_opener (1.2.0)
       launchy (~> 2.2)
     mail (2.5.4)
@@ -245,7 +240,7 @@ GEM
       rack (>= 1.0)
     wirb (1.0.2)
       paint
-    zobi (4.0.0.rc2)
+    zobi (4.0.0)
       rails (~> 4.0.0)
 
 PLATFORMS
@@ -272,7 +267,6 @@ DEPENDENCIES
   pry-rails
   quiet_assets
   rails (= 4.0.2)
-  rails-api!
   rails-footnotes
   rails_12factor
   responders (~> 1.0.0)
@@ -283,4 +277,4 @@ DEPENDENCIES
   turbolinks
   uglifier (>= 1.3.0)
   wirb
-  zobi (~> 4.0.0.rc2)
+  zobi (~> 4.0.0)

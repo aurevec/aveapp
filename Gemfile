@@ -19,9 +19,9 @@ gem 'api-versions',        '~> 1.0'
 gem 'active_model_serializers', '~> 0.8.1'
 gem 'draper', '~> 1.3.0'
 gem 'activerecord_any_of', '~> 1.2'
-gem 'zobi', '~> 4.0.0.rc2'
+gem 'zobi', '~> 4.0.0'
 gem 'responders', '~> 1.0.0'
-gem 'rails-api', github: 'rails-api/rails-api'
+#gem 'rails-api', github: 'rails-api/rails-api'
 
 gem 'iso_country_codes', '~> 0.4.2'
 
