@@ -14,6 +14,9 @@ gem 'therubyrhino'
 gem 'activeadmin', github: 'gregbell/active_admin'
 
 gem 'pg'
+gem 'redis', '~> 3.0.6'
+gem 'redis-namespace', '~> 1.4.1'
+
 gem 'foreigner'
 gem 'api-versions',        '~> 1.0'
 gem 'active_model_serializers', '~> 0.8.1'

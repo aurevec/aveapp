@@ -191,6 +191,9 @@ GEM
       polyamorous (~> 0.6.0)
     rdoc (4.1.1)
       json (~> 1.4)
+    redis (3.0.6)
+    redis-namespace (1.4.1)
+      redis (~> 3.0.4)
     request_store (1.0.5)
     responders (1.0.0)
       railties (>= 3.2, < 5)
@@ -269,6 +272,8 @@ DEPENDENCIES
   rails (= 4.0.2)
   rails-footnotes
   rails_12factor
+  redis (~> 3.0.6)
+  redis-namespace (~> 1.4.1)
   responders (~> 1.0.0)
   sass-rails (~> 4.0.0)
   sdoc
