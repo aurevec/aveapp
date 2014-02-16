@@ -77,4 +77,6 @@ Aveapp::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  ENV["REDISTOGO_URL"] = "redis://redistogo:6fd0a843e8984f8fc7360326fe4ee4d5@pearlfish.redistogo.com:9628/"
 end

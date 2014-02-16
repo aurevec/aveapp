@@ -19,7 +19,7 @@ class Match < ActiveRecord::Base
   private
 
   def redis
-    $redis
+    REDIS
   end
 
 end
