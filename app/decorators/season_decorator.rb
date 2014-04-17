@@ -1,5 +1,4 @@
 class SeasonDecorator < Draper::Decorator
-
   delegate_all
 
   def name
@@ -13,5 +12,4 @@ class SeasonDecorator < Draper::Decorator
   def year_name
     year.name unless year.blank?
   end
-
 end

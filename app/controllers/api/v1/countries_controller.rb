@@ -6,7 +6,6 @@ module Api
       behaviors :inherited
 
       actions :index
-
     end
   end
 end

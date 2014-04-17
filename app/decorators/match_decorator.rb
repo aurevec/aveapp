@@ -1,5 +1,4 @@
 class MatchDecorator < Draper::Decorator
-
   delegate_all
 
   def day_number
@@ -13,5 +12,4 @@ class MatchDecorator < Draper::Decorator
   def away_team_name
     away_team.name unless away_team.blank?
   end
-
 end

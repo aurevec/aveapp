@@ -7,14 +7,14 @@ ActiveAdmin.register Season do
   end
 
   form do |f|
-    f.inputs "Details" do
+    f.inputs 'Details' do
       f.input :competition
       f.input :year
       f.input :begin_date, as: :date_select
       f.input :end_date, as: :date_select
     end
 
-    f.inputs "Teams" do
+    f.inputs 'Teams' do
       f.input :teams, as: :check_boxes, collection: Team.all.order(:name)
     end
 

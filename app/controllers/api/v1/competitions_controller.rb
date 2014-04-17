@@ -8,7 +8,6 @@ module Api
       actions :index
 
       belongs_to :country
-
     end
   end
 end
